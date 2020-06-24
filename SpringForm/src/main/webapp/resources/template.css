@@ -1,0 +1,389 @@
+/*
+•  Group relating css rules into groups that make sense. - this has nothing to do with the code, just readbility
+•  After each css group leave 4 empty lines to aid readbility.
+•  A group's title can start with a hash, making it easy to find using ctrl+f -> #resets
+*/
+/*************************************************
+*	#resets
+**************************************************/
+/*
+•  Don't implement the reset styles until the trainees have seen the effect the default styles
+   have on the webpage.
+•  It is important that we take control of the default styles that are implemented by the browser.
+•  Different types and versions of browsers will have different default values, i.e. body{margin: 10px}.
+*/
+html,
+body {
+    margin: 0;
+    /* no unit of measure is needed as 0px is the same as 0% */
+    padding: 0;
+    background: yellow;
+}
+
+/*
+•  We will use a lot of lists without the need for the bullets/numbers and the default margin and padding.
+•  The margin and padding can be added to lists that specificly need it with the use of classes and css.
+*/
+ul,
+ol {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/*
+•  We reset the heading margin and padding values so we can apply custom values later on.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+
+
+/*************************************************
+*	#elements
+**************************************************/
+* {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
+}
+
+h1 + h2 {
+    margin-top: 15px;
+}
+
+h1 {
+    font-size: 2.5em;
+    font-weight: 500;
+}
+
+h2 {
+    font-size: 2em;
+}
+
+h3 {
+    font-size: 1.75em;
+}
+
+
+
+
+/*************************************************
+*	#helpers
+**************************************************/
+.help--overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(20, 20, 20, 0.7)
+}
+
+.help--pos-rel {
+    position: relative;
+}
+
+.help--cent-v-h {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.help--ligt-grey-bg {
+    background: rgb(220, 220, 220);
+}
+
+.help--color-white {
+    color: rgb(255, 255, 255);
+}
+
+.help--f-left {
+    float: left;
+}
+
+.help--f-right {
+    float: right;
+}
+
+
+
+
+/*************************************************
+*	#layout
+**************************************************/
+/*
+	we have 12 columns (magic number divided by 2, 3, 4, 6)
+	for 12 columns we need 11 margins
+	so if we count margin 3%, then 3% * 11 margins = 33%
+	and if we count width of 1 column 5.5%, than 5.5% * 12 columns = 66%
+	in the end we have 33% + 66% = 99% aaand ???
+	1% is still here so that's the name - One%
+*/
+.row {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+    padding-top: 50px;
+    overflow: auto;
+   
+}
+
+.row:last-of-type {
+    padding-bottom: 50px;
+}
+
+.row--no-pad-t-b {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.col {
+    float: left;
+    margin: 0 3% 0 0;
+}
+
+.col--last {
+    margin-right: 0;
+}
+
+.col--1 {
+    width: 5.5%;
+}
+
+.col--2 {
+    width: 14%;
+}
+
+.col--3 {
+    width: 22.5%;
+}
+
+.col--4 {
+    width: 31%;
+}
+
+.col--5 {
+    width: 39.5%;
+}
+
+.col--6 {
+    width: 48%;
+}
+
+.col--7 {
+    width: 56.5%;
+}
+
+.col--8 {
+    width: 65%;
+}
+
+.col--9 {
+    width: 73.5%;
+}
+
+.col--10 {
+    width: 82%;
+}
+
+.col--11 {
+    width: 90.5%;
+}
+
+.col--12 {
+    width: 99%;
+    margin: 0;
+}
+
+
+
+
+
+/*************************************************
+*	#header
+**************************************************/
+.main-header {
+    height: 60px;
+    background: black;
+}
+
+.main-header .logo {
+    width: 110px;
+}
+
+.main-header nav {
+    float: right;
+}
+
+.main-header nav ul {
+    height: 60px;
+    /* same as the height of the header */
+    line-height: 60px;
+    /* gives the inline elements the ability to apear in the middle of the "line"
+						  effectivly centering the links in the header. */
+}
+
+nav.inline-nav ul li {
+    display: inline;
+    /* changes the list item (li) from being a block element to being inline
+						causing all the links to sit next to eachother */
+}
+
+nav.inline-nav ul li a {
+    text-decoration: none;
+    /* removes underline */
+    color: white;
+}
+
+nav.inline-nav ul li {
+    margin-right: 30px;
+}
+
+nav.inline-nav ul li:last-of-type {
+    margin-right: 0;
+}
+
+nav.inline-nav ul li a:hover {
+    /* these styles will be applied when the user hovers the mouse over the element
+                              They are known as psudo classes. */
+    color: #00adef;
+}
+
+
+
+
+/*************************************************
+*	#button
+**************************************************/
+.button {
+    display: block;
+    margin: auto;
+    background: rgb(255, 255, 255);
+    width: 100px;
+    padding: 8px 10px;
+    border: solid 1px rgb(255, 255, 255);
+    border-radius: 5px;
+    text-decoration: none;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    -webkit-transition: all 0.1s;
+    /* TODO - explain webkit and transitions */
+}
+
+.button:hover {
+    background: #00adef;
+    color: rgb(255, 255, 255);
+    border-color: rgb(255, 255, 255);
+}
+
+
+
+
+/*************************************************
+*	#section
+**************************************************/
+.section-header {
+    text-align: center;
+}
+
+
+
+
+/*************************************************
+*	#info-card
+**************************************************/
+.info-card {
+    padding: 25px;
+    text-align: center;
+    color: white;
+    /* only put this after the .info-card__ribbon class has been styles (what effect does this have) */
+    position: relative;
+    /* only add this after the whole of .info-card__ribbon has been created */
+    overflow: hidden;
+}
+
+.info-card--green {
+    background: #9fc53e;
+}
+
+.info-card--orange {
+    background: #f9b041;
+}
+
+.info-card--blue {
+    background: #00adef;
+}
+
+
+.info-card__icon,
+.info-card__title,
+.info-card__text {
+    margin-bottom: 25px;
+}
+
+.info-card__ribbon {
+    position: absolute;
+    /* TODO - explain -webkit- */
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: translate(90px, 30px) rotate(45deg);
+    top: -8px;
+    right: 50px;
+    background: rgb(255, 255, 255);
+    width: 145px;
+    padding: 2px 0;
+    /* top and bottom, left and right */
+    color: #9fc53e;
+    font-weight: bold;
+}
+
+
+
+
+
+/*************************************************
+*	#media-queries
+**************************************************/
+/* TODO - explain each section */
+@media only screen and (max-width : 600px) {
+    .col {
+        float: none;
+    }
+
+    .col--1,
+    .col--2,
+    .col--3,
+    .col--4,
+    .col--5,
+    .col--6,
+    .col--7,
+    .col--8,
+    .col--9,
+    .col--10,
+    .col--11,
+    .col--12 {
+        width: 100%;
+    }
+
+    .row {
+        width: 95%;
+    }
+
+    .jumbotron {
+        height: 250px;
+    }
+}
